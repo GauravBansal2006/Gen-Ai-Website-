@@ -1,0 +1,44 @@
+---
+title: "Building CampusGPT: A RAG Assistant for College Chaos"
+description: "How I designed a retrieval-based assistant for notes, events, timetables, and the tiny questions students keep asking."
+date: "2026-04-18"
+tags:
+  - Gen AI
+  - RAG
+  - Next.js
+category: "AI Builds"
+featured: true
+author: "Aarav Sharma"
+---
+
+## Why this exists
+
+Every college has a hidden operating system: WhatsApp groups, PDFs, classroom reminders, event posters, and seniors saying "check the drive link." CampusGPT started as a simple idea: what if a student could ask one calm interface instead of searching seven places?
+
+The first version is intentionally narrow. It handles course notes, event details, club announcements, and timetable questions. That keeps retrieval quality easier to debug.
+
+## The system shape
+
+The app follows a small RAG pipeline:
+
+```ts
+const answer = await generateAnswer({
+  question,
+  context: retrievedChunks,
+  format: "student-friendly"
+});
+```
+
+The interesting part is not the model call. The interesting part is making sure the context is clean, recent, and trustworthy.
+
+## What I learned
+
+Good AI products feel less like magic and more like good UX. Students need source links, clear confidence, and answers that admit when they do not know something.
+
+### Next steps
+
+- Add role-based sources for clubs and class reps.
+- Add feedback buttons for bad answers.
+- Build an evaluation set from real student questions.
+
+<Badge>RAG notes</Badge>

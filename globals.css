@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 8%;
+    --primary: 206 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 213 35% 92%;
+    --secondary-foreground: 222 47% 10%;
+    --muted: 213 30% 93%;
+    --muted-foreground: 218 16% 38%;
+    --accent: 206 100% 94%;
+    --accent-foreground: 211 100% 22%;
+    --border: 214 32% 88%;
+    --input: 214 32% 88%;
+    --ring: 206 100% 50%;
+  }
+
+  .dark {
+    --background: 222 52% 4%;
+    --foreground: 210 40% 98%;
+    --card: 222 48% 7%;
+    --card-foreground: 210 40% 98%;
+    --primary: 204 100% 56%;
+    --primary-foreground: 220 55% 6%;
+    --secondary: 217 42% 14%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 36% 13%;
+    --muted-foreground: 215 20% 70%;
+    --accent: 205 100% 14%;
+    --accent-foreground: 200 100% 86%;
+    --border: 217 32% 18%;
+    --input: 217 32% 18%;
+    --ring: 204 100% 56%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-background font-sans text-foreground antialiased;
+  }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply border border-white/10 bg-white/65 shadow-card backdrop-blur-xl dark:bg-white/[0.055];
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent;
+  }
+
+  .prose-blog {
+    @apply prose prose-slate max-w-none dark:prose-invert prose-headings:font-display prose-headings:scroll-mt-28 prose-a:text-primary prose-strong:text-foreground prose-pre:border prose-pre:border-white/10 prose-pre:bg-[#07111f] prose-pre:shadow-glow;
+  }
+}
